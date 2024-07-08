@@ -1,0 +1,14 @@
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'node'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+    - targets: ['ec2-54-81-163-116.compute-1.amazonaws.com:9100']
+      labels:
+        service: 'node_exporter'
+    - targets: ['ec2-54-81-163-116.compute-1.amazonaws.com:9115']
+      labels:
+        service: 'black_exporter'
